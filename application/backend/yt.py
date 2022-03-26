@@ -35,6 +35,7 @@ def fetch_meta(stream):
     }
 
 def execute_yt(url, format, path, name, res):
+    '''creates youtube object and downloads filtered stream'''
     yt = fetch_yt(url)
     if format == "mp3":
         return fetch_audio(yt, name, path)

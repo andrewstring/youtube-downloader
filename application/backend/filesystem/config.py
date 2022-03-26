@@ -2,16 +2,20 @@ import configparser
 
 class Config:
 
+    '''mapping for file open option'''
     file_mod = {
         "create": "w+",
         "read": "r",
         "write": "w"
     }
 
+    '''TODO: improve the way this works
+    Potentially change methods to use argument instead of class variables'''
     file_path_creation = "./config.ini"
     file_path = "./config.ini"
 
     def __init__(self):
+        '''sets up config file parser for read and write'''
         self.config = configparser.ConfigParser()
 
 

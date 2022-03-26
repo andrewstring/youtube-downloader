@@ -6,11 +6,13 @@ clear = lambda: os.system("clear")
 
 class Prompt():
 
+    '''mapping for format selection'''
     format = {
         "1": "mp4",
         "2": "mp3"
     }
     
+    '''mapping for resolution selection'''
     resolution = {
         "1": "720p",
         "2": "480p",
@@ -26,6 +28,7 @@ class Prompt():
         self.file_name = ""
 
     def input_url(self):
+        '''prompts user for url source'''
         clear()
         url = input("Please enter video url: ")
         if "youtube.com" not in url:
@@ -34,6 +37,7 @@ class Prompt():
         return self.url
 
     def input_format(self):
+        '''prompts user format, set default format, or use default format'''
         clear()
         format = input('''Press enter to use default format or select format:
 1. Video (mp4)
@@ -52,6 +56,7 @@ Select and press enter: ''')
 
 
     def input_default_format(self):
+        '''promps user for default format'''
         clear()
         default_format =  input('''Select default format
 1. Video (mp4)
@@ -65,6 +70,7 @@ Select and press enter: ''')
 
 
     def input_resolution(self):
+        '''prompts user resolution, set default resolution, or use default resolution'''
         clear()
         resolution = input('''Press enter to use default format or select resolution
 1. 720p
@@ -84,6 +90,7 @@ Select and press enter: ''')
         
 
     def input_default_resolution(self):
+        '''promps user for default resolution'''
         clear()
         default_resolution = input('''Select default resolution
 1. 720p
@@ -97,6 +104,7 @@ Select and press enter: ''')
         return self.resolution
 
     def input_path(self):
+        '''promps user for path or uses default'''
         clear()
         path = input('''Press enter to use default path or enter path to set new default path.
 Path: ''')
@@ -108,6 +116,7 @@ Path: ''')
         return self.path
 
     def input_file_name(self):
+        '''prompts user for name of file'''
         clear()
         file_name = input('''Please enter name of file: ''')
         if not file_name:
@@ -116,6 +125,7 @@ Path: ''')
         return self.file_name
 
     def runtime(self, url=None):
+        '''runs prompt runtime'''
         if not url:
             self.input_url()
         self.input_format()
@@ -124,12 +134,14 @@ Path: ''')
         self.input_path()
         self.input_file_name()
 
+        '''
         clear()
         print("Url: ", self.url)
         print("Format: ", self.format)
         print("Resolution: ", self.resolution)
         print("Path: ", self.path)
         print("File Name: ", self.file_name)
+        '''
         execute_yt(self.url,
             self.format,
             self.path,
